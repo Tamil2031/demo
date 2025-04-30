@@ -7,17 +7,19 @@ jobs:
   runs-on: ubuntu-latest
 
   steps:
-     -uses: action/chekout@v3
+     - uses: action/chekout@v3
   
-     -uses: action/setup-java@v4
-     with:
-     java-version: 17
-     distribution: temurin
+     - uses: action/setup-java@v4
+       with:
+         java-version: 17
+         distribution: temurin
 
-     -name: Compile java
-     run: javac DemoName.java
+     - name: Compile java
+       run: javac DemoName.java
 
-     -name: Run java
-     run: java DemoName
+     - name: Run java
+       run: java DemoName
+
+     
      
      
