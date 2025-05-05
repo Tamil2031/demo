@@ -24,6 +24,9 @@ jobs:
    - name: build with npm
      run: npm run build
 
+   - name: cypress dependencies
+     run: cypress install
+
    - name: test with cypress
      uses: cypress.io/github.actions@v6
      with:
@@ -36,8 +39,7 @@ jobs:
      env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
        
-   - name: cypress dependencies
-     run: cypress install
+ 
      
      
    
