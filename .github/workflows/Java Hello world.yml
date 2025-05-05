@@ -1,26 +1,49 @@
-name: basic example
+name: build test deploy
 
 on:
  push:
   branches:
-    - main
-
+   - main
+   
 jobs:
  build:
   runs-on: ubuntu-latest
- 
+
   steps:
    - name: checkout
      uses: actions/checkout@v3
 
-   - name: setup java
+   - name: set up java
      uses: actions/setup-java@v4
      with:
-      distribution: temurin
       java-version: 17
 
-   - name: Compile Java
-     run: javac DemoName.java
+   - name: install dependencies
+     run: npm install 
 
-   - name: Run java
-     run: java DemoName
+   - name: build with npm
+     run: npm run build
+
+   - name: test with cypress
+     uses: cypress.io/github.actions@v6
+     with:
+      start: npm start
+      wait-on: 'http:/localhost:3000'
+      wait-on-timeout: 60
+
+   - name: Deploy
+     run: npm run deploy
+     env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+       
+       
+      
+      
+     
+
+      
+
+   
+ 
+     
+   
