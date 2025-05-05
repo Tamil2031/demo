@@ -24,15 +24,13 @@ jobs:
    - name: build with npm
      run: npm run build
 
-   - name: cypress dependencies
-     run: cypress install
 
-   - name: test with cypress
-     uses: cypress.io/github.actions@v6
+   - name: Run Cypress tests
+     uses: cypress-io/github-action@v6
      with:
-      start: npm start
-      wait-on: 'http:/localhost:3000'
-      wait-on-timeout: 60
+       start: npm start
+       wait-on: 'http://localhost:3000'
+       wait-on-timeout: 60
 
    - name: Deploy
      run: npm run deploy
