@@ -1,28 +1,23 @@
-name: CI with Cache
+name: basic exmaple
 
 on:
-  push:
-    branches:
-      - main
+ push:
+  branches:
+   - main
+   
+ jobs:
+   build:
+   runs-on: ubuntu-latest
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+ steps:
+    - name: checking
+      uses: actions/checkout@v4
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: compile java
+        uses:javac DemoName.java
 
-    - name: Cache node_modules
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run build
-      run: npm run build
+    - name: run java
+      uses: DemoName.java
+      
+    
+    
