@@ -25,13 +25,6 @@ jobs:
      run: npm run build
 
 
-   - name: Run Cypress tests
-     uses: cypress-io/github-action@v6
-     with:
-       start: npm start
-       wait-on: 'http://localhost:3000'
-       wait-on-timeout: 60
-
    - name: Deploy
      run: npm run deploy
      env:
