@@ -1,0 +1,26 @@
+name: trigger with issues
+
+on: 
+ issues:
+  types: [ opened, edited, closed]
+
+  issue_commet:
+    types: [ created, edited]
+
+    jobs:
+     build:
+      runs-on: ubuntu-latest
+
+      steps:
+       - name: checkout repository
+         uses: actions/checkout@v4
+
+       - name: set up jdk 11
+         uses: actions/setup-java@v4
+         with:
+          java-version: 11
+          distribution: temurin
+          
+        
+         
+    
