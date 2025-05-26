@@ -1,0 +1,27 @@
+name: issue driggered
+
+on:
+ issues: [ opened, edited]
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+
+  steps:
+   - name: checkout 
+     uses: actions/checkout@v4
+
+   - name: set up java
+     uses: actions/setup-java@v4
+     with:
+      java-version: 17
+      distribution: temurin
+
+   - name: show issues info
+     run: |
+       echo "issue title: ${{ github.event.issue.title}}"
+       echo " action: ${{ github.event.action}}"
+
+       
+  
+   
