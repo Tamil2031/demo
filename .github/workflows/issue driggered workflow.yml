@@ -1,7 +1,8 @@
 name: issue driggered
 
 on:
- issues: [ opened, edited]
+ issues:
+  types: [ opened, edited ]
 
 jobs:
  build:
