@@ -22,7 +22,3 @@ jobs:
      run: |
        echo "issue title: ${{ github.event.issue.title}}"
        echo " action: ${{ github.event.action}}"
-
-       
-  
-   
